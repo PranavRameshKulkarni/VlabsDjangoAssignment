@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Userdata</title>
+</head>
+<body>
+<h2>HELLO {{user.username}}</h2>
+<h4>Username {{user.first_name}}</h4>
+{%for field,value in user.items%}
+<h2>{{field}}::{{value}}</h2>
+{%endfor%}
+<h4>Password {{user.user_profile.mobile}}</h4>
+</body>
+</html>

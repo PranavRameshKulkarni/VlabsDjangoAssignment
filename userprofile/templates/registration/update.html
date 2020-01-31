@@ -1,0 +1,34 @@
+{% extends "registration/sidebar.html" %}
+{%block nav-home%}
+    <li>
+        <a href="{%url 'postlogin'%}"><span class="fa fa-home mr-3"></span> Homepage</a>
+    </li>
+{%endblock%}
+ {%block nav-dashboard%}
+    <li class="active">
+        <a href="{%url 'update' %}"><span class="fa fa-user mr-3"></span> Dashboard</a>
+    </li>
+{%endblock%}
+{%block header%}
+<h2 class="mb-4">UPDATE INFO</h2>
+    {%endblock%}
+ {%block content%}
+    <div>
+        <form action="" method="post">
+            {%csrf_token%}
+        <p><h5><b>Username:</b></h5> {{form1.username}}</br></p><hr>
+        <p><h5><b>First Name:</b></h5> {{form1.first_name}}</br></p><hr>
+        <p><h5><b>Last Name:</b></h5> {{form1.last_name}}</br></p><hr>
+        <p><h5><b>Mobile:</b></h5> {{form.mobile}}</br></p><hr>
+        <p><h5><b>Birthdate:</b></h5> {{form.birthdate}}</br></p><hr>
+        <p><h5><b>Company:</b></h5> {{form.company}}</br></p><hr>
+        <p><h5><b>Salary:</b></h5> {{form.salary}}</br></p><hr>
+        <p><h5><b>Employee ID:</b></h5> {{form.employee_Id}}</br></p><hr>
+        <p><h5><b>Experience:</b></h5> {{form.experience}}</br></p><hr>
+         <p>
+            <input type="Submit" name="submit">
+            </p>
+            </form>
+
+    </div>
+{%endblock%}

@@ -1,0 +1,15 @@
+{% extends "registration/sidebar.html" %}
+{%block nav-home%}
+    <li>
+        <a href="{%url 'postlogin'%}"><span class="fa fa-home mr-3"></span> Homepage</a>
+    </li>
+{%endblock%}
+ {%block nav-logout%}<li class="active">
+            <a href="{%url 'logoutpage'%}"><span class="fa fa-sticky-note mr-3"></span> Logout</a>
+          </li>{%endblock%}
+{%block content%}
+    <div>
+        <p><h4>Are you sure you want to logout?</h4></p><hr>
+        <p><a href="{%url 'completelogout'%}"><button type="submit">Submit</button></a></p>
+    </div>
+{%endblock%}

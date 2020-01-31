@@ -1,0 +1,126 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div align="center">-->
+<!--        <h2>Registration</h2>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {% for field in form%}-->
+<!--        <p>{{field.label}}{{field}}</p>-->
+<!--        {% endfor %}-->
+<!--        {{profileform.as_p}}-->
+<!--        {% for field in form %}-->
+<!--            {{ field.errors }}-->
+<!--        {% endfor %}-->
+<!--        <button type="submit">SUBMIT</button>-->
+<!--    </form>-->
+<!--    </div>-->
+<!--</body>-->
+<!--<style>-->
+<!--    div{-->
+<!--        margin-top:150px;-->
+<!--    }-->
+<!--    body{-->
+<!--        background: powderblue;-->
+<!--    }-->
+<!--    button{-->
+<!--        color: white;-->
+<!--        padding: 10px;-->
+<!--        background:green;-->
+<!--    }-->
+<!--</style>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+{%load static%}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        {% csrf_token %}
+                        <h2 class="form-title">Create account</h2>
+                         <div class="form-group">
+                             {% render_field form.username class="form-input" placeholder=form.username.label %}
+                         </div>
+                        <div class="form-group">
+                             {% render_field form.first_name class="form-input" placeholder=form.first_name.label %}
+                         </div>
+                        <div class="form-group">
+                             {% render_field form.last_name class="form-input" placeholder=form.last_name.label %}
+                         </div>
+                        <div class="form-group">
+                            {% render_field form.email class="form-input" placeholder=form.email.label %}
+                        </div>
+                        <input type="hidden" id="hidden" value="1">
+                        <div class="form-group">
+                            {% render_field form.password1 class="form-input" placeholder=form.password1.label %}
+<!--                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>-->
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.password2 class="form-input" placeholder=form.password2.label %}
+                        </div>
+                        <input type="hidden" id="hidden_field" value="2"><BR><BR>
+<!--                        This is the next part-->
+                        <h2 class="form-title">PERSONAL INFORMATION</h2>
+                         <div class="form-group">
+                             {% render_field profileform.mobile class="form-input" placeholder=profileform.mobile.label %}
+                         </div>
+                        <div class="form-group">
+                            {% render_field profileform.birthdate class="form-input" placeholder=profileform.birthdate.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field profileform.company class="form-input" placeholder=profileform.company.label %}
+<!--                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>-->
+                        </div>
+                        <div class="form-group">
+                            {% render_field profileform.employee_Id class="form-input" placeholder=profileform.employee_Id.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field profileform.salary class="form-input" placeholder=profileform.salary.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field profileform.experience class="form-input" placeholder=profileform.experience.label %}
+                        </div>
+                        <div class="form-group">
+                            {{profileform.errors}}
+                            {{form.errors}}
+                        </div>
+                        <div class="form-group">
+                            <a href="{% url 'loginpage'%}"><button type="submit" name="submit" id="submit" class="form-submit" value="Sign up">SUBMIT</button></a>
+                        </div>
+
+                    </form>
+                    <p class="loginhere">
+                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+</div>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
+

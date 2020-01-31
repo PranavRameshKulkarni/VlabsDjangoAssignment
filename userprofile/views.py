@@ -31,7 +31,7 @@ def signup(request):
             uid = get_random_string(length=32)
             profile.uid = uid
             profile.save()
-            message = "127.0.0.1:8000/verification/" + str(form.cleaned_data['username']) + "/" + uid
+            message = "http://djangointerns.herokuapp.com/verification/" + str(form.cleaned_data['username']) + "/" + uid
             send_mail("Verification", message, EMAIL_HOST_USER, [form.cleaned_data['email']], fail_silently=False)
             messages.info(request,"Verification link sent")
             return redirect('loginpage')

@@ -12,7 +12,7 @@ class Userprofile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
     mobile = models.BigIntegerField( validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)])
     birthdate = models.DateField(_("Date"), default=datetime.date.today)
-    employee_Id = models.IntegerField(MaxValueValidator(1000000), MinValueValidator(999999)])
+    employee_Id = models.IntegerField(validators=[MaxValueValidator(1000000), MinValueValidator(999999)])
     company = models.CharField(max_length=100, default='')
     experience = models.IntegerField(
         validators=[MaxValueValidator(15), MinValueValidator(1)]

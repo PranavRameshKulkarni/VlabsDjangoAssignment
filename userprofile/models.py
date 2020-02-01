@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Userprofile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
-    mobile = models.BigIntegerFieldField()
+    mobile = models.BigIntegerField()
     birthdate = models.DateField(_("Date"), default=datetime.date.today)
     employee_Id = models.IntegerField()
     company = models.CharField(max_length=100, default='')
